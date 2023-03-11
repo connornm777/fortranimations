@@ -1,0 +1,5 @@
+set terminal png
+set output fileout
+set xrange [0:300]
+set yrange [-100:100]
+plot filename u 1:2 w l

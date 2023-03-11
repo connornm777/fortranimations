@@ -1,0 +1,5 @@
+rm -f timeslice3d/*
+gfortran 3dwaves.f90
+./a.out
+./animation3d
+xdg-open wave.gif

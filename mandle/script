@@ -1,0 +1,6 @@
+mv *ppm archive/
+gfortran draw.f90
+./a.out
+convert -delay 10 -loop 0 *.ppm animation.gif
+convert animation.gif -coalesce -reverse reversed.gif
+convert animation.gif reversed.gif +append looped.gif

@@ -1,0 +1,6 @@
+set terminal png
+set output fileout
+set xrange [0:33]
+set yrange [0:33]
+set zrange [-1:1]
+splot filename u 1:2:3, filename u 1:2:4, filename u 1:2:5 
