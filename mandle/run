@@ -1,0 +1,7 @@
+#!/bin/bash
+rm -f *ppm 
+gfortran draw.f90
+./a.out
+ffmpeg -r 30 -i %04d\ \ \ \ \ \ .ppm -c:v libx264 -crf 18 -pix_fmt yuv420p $1
+rm -f *ppm
+xdg-open $1

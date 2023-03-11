@@ -1,0 +1,6 @@
+rm -f timeslice2d/*
+gfortran 2dwaves.f90
+./a.out
+./animation2d
+xdg-open wave.gif
+rm -f timeslice2d/*
