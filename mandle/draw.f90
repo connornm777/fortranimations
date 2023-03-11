@@ -13,11 +13,11 @@ end function f
 program draw_image
   implicit none
  
-  integer, parameter :: n=200, steps = 500
+  integer, parameter :: n=50, steps = 100
   real, parameter :: s=2.0 ! image boundaries
   
   integer :: i, j, t ! loop indices
-  real :: dt=0.05
+  real :: dt=0.05, pi = 4.0*atan(1.0)
   real :: ab(n, n), im(n, n), re(n, n)
   character(len=10) :: filename 
   complex :: c, f
@@ -26,7 +26,7 @@ program draw_image
   do t = 1, steps
     do i = 1, n
       do j = 1, n 
-        c = f(cmplx(s*(1.0*(i-1)/(n-1)-0.5), s*(1.0*(j-1)/(n-1)-0.5)), 1.0+t*dt)
+        c = f(cmplx(s*(1.0*(i-1)/(n-1)-0.5), s*(1.0*(j-1)/(n-1)-0.5)), 0.5+t*dt)
         ab(i,j) = abs(c)/(1+abs(c))
         re(i, j) = real(c)/(1+abs(c))
         im(i, j) = aimag(c)/(1+abs(c))
@@ -42,7 +42,7 @@ program draw_image
 
     do j = 1, n
       do i = 1, n
-        write(1,*) nint(ab(i,j)*255*re(i,j)),  nint(ab(i,j)*255),  nint(ab(i,j)*255*im(i,j))
+        write(1,*) nint(ab(i,j)*255*re(i,j)),  0,  nint(255*ab(i,j)*im(i,j))
       end do
     end do
     close(unit=1)
