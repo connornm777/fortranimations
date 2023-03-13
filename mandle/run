@@ -1,6 +1,0 @@
-#!/bin/bash
-rm -f data/*ppm 
-gfortran draw.f90
-./a.out
-ffmpeg -r 30 -i data/%04d\ \ \ \ \ \ .ppm -c:v libx264 -crf 18 -pix_fmt yuv420p out.mp4
-xdg-open out.mp4

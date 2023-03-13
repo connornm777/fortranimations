@@ -1,0 +1,4 @@
+#!/bin/bash
+gfortran draw.f90
+./a.out
+xdg-open output.ppm
